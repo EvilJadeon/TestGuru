@@ -1,9 +1,9 @@
 class CreateTests < ActiveRecord::Migration[6.1]
   def change
     create_table :tests do |t|
-      t.string :title
-      t.integer :level
-      t.string :author
+      t.string :title, null: false
+      t.integer :level, null: false, default: 0
+      t.string :author, null: false
       
       t.timestamps
     end
@@ -12,11 +12,8 @@ class CreateTests < ActiveRecord::Migration[6.1]
       add_reference :tests, :category, foreign_key: true
       add_foreign_key :tests, :categories
 
-      change_column_null :tests, :title, false
-      change_column_null :tests, :level, false
-      change_column_null :tests, :author, false
-
-      change_column_default :tests, :level, 0
+      add_reference :tests, :user, foreign_key: true
+      add_foreign_key :tests, :users
     end
   end
 end
