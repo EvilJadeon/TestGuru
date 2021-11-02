@@ -40,3 +40,9 @@ answers = Answer.create!([
   {body: 'It was rained this morning.', question_id: questions[3].id},
   {body: 'It were raining this morning.', question_id: questions[3].id}
 ])
+
+results = Result.create!([
+  {user_id: users[0].id, test_id: tests[0].id},
+  {user_id: users[1].id, test_id: tests[1].id},
+  {user_id: users[2].id, test_id: tests[2].id}
+])
