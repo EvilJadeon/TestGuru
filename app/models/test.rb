@@ -5,4 +5,12 @@ class Test < ApplicationRecord
       .order(id: :DESC)
       .pluck(:title)
   end
+
+  belongs_to :category
+  belongs_to :user
+
+  has_many :questions
+
+  has_many :results
+  has_many :users, through: :results
 end
