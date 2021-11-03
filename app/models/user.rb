@@ -1,11 +1,10 @@
 class User < ApplicationRecord
-  def passed_tests(level)
-    Test.joins('INNER JOIN results ON results.test_id = tests.id')
-      .where(tests: {level: level}, results: {user_id: id})
-  end
-
-  has_many :tests
 
   has_many :results
   has_many :tests, through: :results
+
+  def passed_tests(test_level)
+    Test.joins(:results)
+      .where(tests: {level: test_level}, results: {user_id: id})
+  end
 end
