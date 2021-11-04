@@ -1,10 +1,11 @@
 class Test < ApplicationRecord
 
   belongs_to :category
+  belongs_to :user
 
-  has_many :questions, dependent: :delete_all
-  has_many :results, dependent: :delete_all
-  has_many :users, through: :results, dependent: :delete_all
+  has_many :questions, dependent: :destroy
+  has_many :results, dependent: :destroy
+  has_many :users, through: :results
 
   def self.test_names(category_title)
     joins(:category)

@@ -5,6 +5,6 @@ class User < ApplicationRecord
 
   def passed_tests(test_level)
     Test.joins(:results)
-      .where(tests: {level: test_level}, results: :user)
+      .where(tests: {level: test_level}, results: {user: id})
   end
 end
