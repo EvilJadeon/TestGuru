@@ -9,6 +9,6 @@ class Answer < ApplicationRecord
   private
 
   def number_of_answers
-    errors.add(:base, 'Count of answers must be 1 to 4') if question.answers.count < 1 && question.answers.count > 5
+    errors.add(:base, 'Count of answers must be 1 to 4') if question.answers.count >= 5
   end
 end

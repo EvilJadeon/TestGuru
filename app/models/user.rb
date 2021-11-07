@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  has_many :tests, foreign_key: 'author_id', dependent: :destroy
   has_many :results, dependent: :destroy
   has_many :tests, through: :results
 
@@ -7,7 +8,6 @@ class User < ApplicationRecord
   validates :email, presence: true
 
   def passed_tests(test_level)
-    Test.joins(:result)
-    .where(tests: {level: test_level}, results: {user: id})
+    tests.where(level: test_level)
   end
 end
