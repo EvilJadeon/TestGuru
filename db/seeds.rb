@@ -8,7 +8,7 @@
 
 categories = Category.create!([{title: 'Reading'}, {title: 'Writing'}])
 
-users = User.create!([{name: 'Ivan'}, {name: 'Anna'}, {name: 'Andrew'}, {name: 'Dmitriy'}])
+users = User.create!([{name: 'Ivan', email: 'ivan@ya.ru'}, {name: 'Anna', email: 'anna@ya.ru'}, {name: 'Andrew', email: 'andrew@ya.ru'}, {name: 'Dmitriy', email: 'dm@ya.ru'}])
 
 tests = Test.create!([
   {title: 'Тест на глагол TO BE', level: 1, author: users[0], category: categories[1]},
