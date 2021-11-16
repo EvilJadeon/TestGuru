@@ -1,0 +1,7 @@
+<% @questions.each do |i| %>
+
+  <p><%= i.body %></p>
+
+<% end %>
+
+<%= link_to 'New Question', new_test_question_path %>

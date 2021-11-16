@@ -5,11 +5,13 @@ class QuestionsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    render inline: '<%= @test.questions.inspect %>'
+    @questions = @test.questions
   end
 
   def show
-    render inline: '<%= @question.inspect %>'
+    unless find_question
+      render text: 'Question not found!'
+    end
   end
 
   def new; end
@@ -18,7 +20,8 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
     @question = @test.questions.build(question_params)
 
     if @question.save
-      redirect_to @question
+      flash[:success] = "Question saved successfully"
+      redirect_to test_questions_url
     else
       render :new
     end
@@ -26,7 +29,6 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def destroy
     @question.destroy
-
     redirect_to @question.test
   end
 
@@ -37,7 +39,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   end
 
   def find_question
-    @question = Question.find(params[:id])
+    @question = Question.find(params[:body])
   end
 
   def question_params
@@ -45,6 +47,6 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   end
 
   def rescue_with_question_not_found
-    render html: '<h3>Question was not found</h3>'.html_safe
+    render html: '<h3>Question not found</h3>'.html_safe
   end
 end
