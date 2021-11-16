@@ -12,9 +12,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
     render inline: '<%= @question.inspect %>'
   end
 
-  def new
-
-  end
+  def new; end
 
   def create
     @question = @test.questions.build(question_params)
@@ -28,6 +26,8 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def destroy
     @question.destroy
+
+    redirect_to @question.test
   end
 
   private

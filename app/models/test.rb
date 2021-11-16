@@ -1,16 +1,28 @@
 class Test < ApplicationRecord
-  def self.test_names(category)
-    joins("INNER JOIN categories ON tests.category_id = categories.id")
-      .where(categories: {title: category})
-      .order(id: :DESC)
-      .pluck(:title)
-  end
 
   belongs_to :category
-  belongs_to :user
+  belongs_to :author, class_name: 'User'
 
-  has_many :questions
-
-  has_many :results
+  has_many :questions, dependent: :destroy
+  has_many :results, dependent: :destroy
   has_many :users, through: :results
+
+  validates :title, presence: true
+  validates :level, numericality: {greater_than_or_equal_to: 0}
+  validates :title, uniqueness: { case_sensitive: false, scope: :level,
+    message: 'There can only be one test with a given name and level'}
+
+  scope :test_level_easy, -> { where(level: (0..1)) }
+  scope :test_level_middle, -> { where(level: (2..4)) }
+  scope :test_level_hard, -> { where(level: (5..Float::INFINITY)) }
+
+  scope :test_names, ->(category_title) { 
+    joins(:category)
+    .where(categories: {title: category_title})
+    .order(title: :DESC)
+  }
+
+  def self.test_names_title(category_title)
+    test_names(category_title).pluck(:title)
+  end
 end
