@@ -20,7 +20,6 @@ rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
     @question = @test.questions.build(question_params)
 
     if @question.save
-      flash[:success] = "Question saved successfully"
       redirect_to test_questions_url
     else
       render :new
