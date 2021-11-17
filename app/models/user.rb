@@ -10,4 +10,5 @@ class User < ApplicationRecord
   def passed_tests(test_level)
     tests.where(level: test_level)
   end
+  
 end
