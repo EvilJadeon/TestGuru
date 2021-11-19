@@ -9,11 +9,9 @@
 </p>
 
 <p>
-  <strong>List of questions:</strong>
-    <% @test.questions.each do |question| %>
-      <li><%= question.body %>
-      <%= link_to 'Edit', edit_question_path %></li>
-    <% end %>
+  <strong>Questions:</strong>
+  
+  <%= render @test.questions %>
 </p>
 
 <%= link_to 'Edit', edit_test_path(@test) %>
