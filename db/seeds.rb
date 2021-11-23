@@ -8,41 +8,41 @@
 
 categories = Category.create!([{title: 'Reading'}, {title: 'Writing'}])
 
-users = User.create!([{name: 'Ivan'}, {name: 'Anna'}, {name: 'Andrew'}, {name: 'Dmitriy'}])
+users = User.create!([{name: 'Ivan', email: 'ivan@ya.ru'}, {name: 'Anna', email: 'anna@ya.ru'}, {name: 'Andrew', email: 'andrew@ya.ru'}, {name: 'Dmitriy', email: 'dm@ya.ru'}])
 
 tests = Test.create!([
-  {title: 'Тест на глагол TO BE', level: 1, author_id: users[0].id, category_id: categories[1].id},
-  {title: 'Тест на глагол TO HAVE', author_id: users[1].id, category_id: categories[1].id},
-  {title: 'Тест на глаголы DO и MAKE', level: 2, author_id: users[2].id, category_id: categories[1].id},
-  {title: 'Тест на времена CONTINUOUS', level: 2, author_id: users[3].id, category_id: categories[0].id}
+  {title: 'Тест на глагол TO BE', level: 1, author: users[0], category: categories[1]},
+  {title: 'Тест на глагол TO HAVE', author: users[1], category: categories[1]},
+  {title: 'Тест на глаголы DO и MAKE', level: 2, author: users[2], category: categories[1]},
+  {title: 'Тест на времена CONTINUOUS', level: 2, author: users[3], category: categories[0]}
 ])
 
 questions = Question.create!([
-  {body: 'I __ dissappointed by your desicion', test_id: tests[0].id},
-  {body: 'I __ a big family', test_id: tests[1].id},
-  {body: 'Do not __ anything stupid!', test_id: tests[2].id},
-  {body: 'Утром шел дождь.', test_id: tests[3].id}
+  {body: 'I __ dissappointed by your desicion', test: tests[0]},
+  {body: 'I __ a big family', test: tests[1]},
+  {body: 'Do not __ anything stupid!', test: tests[2]},
+  {body: 'Утром шел дождь.', test: tests[3]}
 ])
 
 answers = Answer.create!([
-  {body: 'was', correct: true, question_id: questions[0].id},
-  {body: 'has been', question_id: questions[0].id},
-  {body: 'am being', question_id: questions[0].id},
+  {body: 'was', correct: true, question: questions[0]},
+  {body: 'has been', question: questions[0]},
+  {body: 'am being', question: questions[0]},
 
-  {body: 'have', correct: true, question_id: questions[1].id},
-  {body: 'had', question_id: questions[1].id},
-  {body: 'has', question_id: questions[1].id},
+  {body: 'have', correct: true, question: questions[1]},
+  {body: 'had', question: questions[1]},
+  {body: 'has', question: questions[1]},
 
-  {body: 'do', correct: true, question_id: questions[2].id},
-  {body: 'make', question_id: questions[2].id},
+  {body: 'do', correct: true, question: questions[2]},
+  {body: 'make', question: questions[2]},
 
-  {body: 'It was raining this morning.', correct: true, question_id: questions[3].id},
-  {body: 'It was rained this morning.', question_id: questions[3].id},
-  {body: 'It were raining this morning.', question_id: questions[3].id}
+  {body: 'It was raining this morning.', correct: true, question: questions[3]},
+  {body: 'It was rained this morning.', question: questions[3]},
+  {body: 'It were raining this morning.', question: questions[3]}
 ])
 
 results = Result.create!([
-  {user_id: users[0].id, test_id: tests[0].id},
-  {user_id: users[1].id, test_id: tests[1].id},
-  {user_id: users[2].id, test_id: tests[2].id}
+  {user: users[0], test: tests[0]},
+  {user: users[1], test: tests[1]},
+  {user: users[2], test: tests[2]}
 ])
