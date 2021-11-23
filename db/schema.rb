@@ -9,7 +9,7 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 2021_11_22_161525) do
+ActiveRecord::Schema.define(version: 2021_11_06_185735) do
 
 
   create_table "answers", force: :cascade do |t|
