@@ -4,8 +4,8 @@ class Test < ApplicationRecord
   belongs_to :author, class_name: 'User'
 
   has_many :questions, dependent: :destroy
-  has_many :results, dependent: :destroy
-  has_many :users, through: :results
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages
 
   validates :title, presence: true
   validates :level, numericality: {greater_than_or_equal_to: 0}
