@@ -12,7 +12,7 @@
 
 
 ActiveRecord::Schema.define(version: 2021_11_22_161525) do
-  
+
 
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
