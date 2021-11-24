@@ -5,6 +5,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_current_question
 
+  SUCCESS_RATIO = 85.freeze
+
   def current_question_number
     test.questions.order(:id).where('id < ?', current_question.id).size + 1
   end
@@ -22,7 +24,7 @@ class TestPassage < ApplicationRecord
   end
 
   def successfull?
-    self.success_rate >= 85
+    self.success_rate >= SUCCESS_RATIO
   end
 
   def success_rate
