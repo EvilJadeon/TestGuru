@@ -41,7 +41,6 @@ class TestsController < ApplicationController
   end
 
   def start
-    current_user
     current_user.tests.push(@test)
     redirect_to current_user.test_passage(@test)
   end
@@ -53,6 +52,6 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end
