@@ -11,18 +11,12 @@
   </head>
 
   <body>
-    <%= render 'shared/flash_messages' %>
+    <%= flash_messages %>
 
-    <% unless logged_in? %>
-      <%= render 'shared/nav' %>
-    <% else %>
-      <p>Welcome, <%= current_user.name %></p>
-      <%= link_to 'Exit', session_path(session), method: :delete %>
-    <% end %>
+    <%= render 'shared/nav' %>
 
     <%= yield %>
-    <footer class="footer">
-      <%= render 'shared/footer' %>
-    </footer>
+
+    <%= render 'shared/footer' %>
   </body>
 </html>
