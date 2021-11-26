@@ -1,4 +1,10 @@
-<h1><%= link_to 'TestGuru', root_path %></h1>
+<% unless logged_in? %>
+  <h1><%= link_to 'TestGuru', root_path %></h1>
 
-<%= link_to 'Sign up', signup_path %>
-<%= link_to 'Sign in', login_path %>
+  <%= link_to 'Sign up', signup_path %>
+  <%= link_to 'Sign in', login_path %>
+<% else %>
+  <p>Welcome, <%= current_user.name %></p>
+  <%= link_to 'Exit', session_path(session), method: :delete %>
+<% end %>
+
