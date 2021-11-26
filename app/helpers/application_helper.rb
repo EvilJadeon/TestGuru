@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def current_year
     Date.current.year
   end
@@ -8,4 +7,7 @@ module ApplicationHelper
     link_to 'Click me', "https://github.com/#{author}/#{repo}", target: '_blank'
   end
 
+  def flash_messages
+    render 'shared/flash_messages'
+  end
 end
