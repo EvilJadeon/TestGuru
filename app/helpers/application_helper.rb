@@ -8,6 +8,9 @@ module ApplicationHelper
   end
 
   def flash_messages
-    render 'shared/flash_messages'
+    flash.each do |key, message|
+      tag.div class: "alert alert-#{key}"
+        return message
+    end
   end
 end
