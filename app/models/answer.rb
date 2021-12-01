@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class Answer < ApplicationRecord
   belongs_to :question
 
   validates :body, presence: true
-  validates :number_of_answers, on: :create
+  # validates :number_of_answers, on: :create
 
   scope :correct, -> { where(correct: true) }
 
