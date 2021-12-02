@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def current_year
     Date.current.year
@@ -7,10 +9,7 @@ module ApplicationHelper
     link_to 'Click me', "https://github.com/#{author}/#{repo}", target: '_blank'
   end
 
-  def flash_messages
-    flash.each do |key, message|
-      tag.div class: "alert alert-#{key}"
-        return message
-    end
+  def flash_messages(type)
+    content_tag :p, flash[type], class: "flash #{type}" if flash[type]
   end
 end

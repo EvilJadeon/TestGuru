@@ -11,9 +11,10 @@
   </head>
 
   <body>
-    <%= flash_messages %>
 
     <%= render 'shared/nav' %>
+
+    <%= flash_messages(:success) %>
 
     <%= yield %>
 

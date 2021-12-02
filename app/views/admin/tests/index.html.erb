@@ -1,0 +1,19 @@
+<h1>All tests</h1>
+
+<p><%= link_to 'New test', new_admin_test_path %></p>
+
+<% unless @tests.empty?%>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Level</th>
+      <th>Questions count</th>
+      <th colspan="4">Actions</th>
+    </tr>
+
+    <%= render @tests %>
+  </table>
+<% else %>
+  <p>There are no tests here!</p>
+<% end %>
+

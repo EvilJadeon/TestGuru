@@ -1,20 +1,6 @@
-class SessionsController < ApplicationController
-  def new; end
-
+class SessionsController < Devise::SessionsController
   def create
-    user = User.find_by(email: params[:email])
-
-    if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to cookies.delete(:user_request_path) || tests_path
-    else
-      redirect_to login_path, danger: 'Are you a Guru? Please input your Email and Password'
-    end
-  end
-
-  def destroy
-    reset_session
-
-    redirect_to root_path, success: 'See you later'
+    super
+    flash[:success] = "Hey, #{current_user.first_name}"
   end
 end
