@@ -2,9 +2,9 @@
   <h1><%= link_to 'TestGuru', root_path %></h1>
 
   <%= link_to 'Sign up', new_registration_path(resource_name) %>
-  <%= link_to 'Sign in', new_session_path(resource_name) %>
+  <%= link_to 'Sign in', new_user_session_path(resource_name) %>
 <% else %>
   <p>Welcome, <%= current_user.email %></p>
-  <%= link_to 'Exit', destroy_user_session_path, method: :delete %>
+  <%= button_to 'Exit', destroy_user_session_path, method: :delete %>
 <% end %>
 
