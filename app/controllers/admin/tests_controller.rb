@@ -19,7 +19,7 @@
       @test = current_user.having_tests.new(test_params)
 
       if @test.save
-        redirect_to admin_tests_path
+        redirect_to admin_tests_path, notice: t('.success')
       else
         render :new
       end
@@ -29,7 +29,7 @@
 
     def update
       if @test.update(test_params)
-        redirect_to admin_tests_path
+        redirect_to admin_tests_path, notice: t('.update_success')
       else
         render :edit
       end
@@ -37,7 +37,7 @@
 
     def destroy
       @test.destroy
-      redirect_to admin_tests_path
+      redirect_to admin_tests_path, notice: t('.delete')
     end
 
     private

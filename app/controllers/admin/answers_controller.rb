@@ -16,7 +16,7 @@
       @answer = @question.answers.new(answer_params)
 
       if @answer.save
-        redirect_to admin_answer_path(@answer), notice: 'Answer was successfully created'
+        redirect_to admin_answer_path(@answer), notice: 'Answer successfully created'
       else
         render :new
       end
@@ -24,7 +24,7 @@
 
     def update
       if @answer.update(answer_params)
-        redirect_to admin_question_answers_path
+        redirect_to admin_question_answers_path, notice: 'Answer successfully updated'
       else
         render :edit
       end
@@ -32,7 +32,7 @@
 
     def destroy
       @answer.destroy
-      redirect_to admin_question_answers_path
+      redirect_to admin_question_answers_path, notice: 'Answer was deleted'
     end
 
     private
