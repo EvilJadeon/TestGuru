@@ -84,6 +84,13 @@ ru:
         answers: "Ответы: "
       edit:
         edit: "Редактировать вопрос: %{body}"
+      create:
+        success: "Вопрос успешно создан"
+      update:
+        update_success: "Вопрос успешно обновлен"
+      destroy:
+        delete: "Вопрос удален"
+
     answers:
       new:
         header: "Новый ответ"
@@ -93,6 +100,12 @@ ru:
         correct: "Правильный ответ: "
       edit:
         edit: "Редактировать ответ"
+      create:
+        success: "Ответ успешно создан"
+      update:
+        update_success: "Ответ успешно обновлен"
+      destroy:
+        delete: "Ответ удален"
 
   test_passages:
     result:

@@ -81,6 +81,13 @@ en:
         answers: "Answers: "
       edit:
         edit: "Edit question: %{body}"
+      create:
+        success: "Question successfully created"
+      update:
+        update_success: "Question successfully updated"
+      destroy:
+        delete: "Question was deleted"
+
     answers:
       new:
         header: "New Answer"
@@ -90,6 +97,12 @@ en:
         correct: "Correct: "
       edit:
         edit: "Edit Answer"
+      create:
+        success: "Answer successfully created"
+      update:
+        update_success: "Answer successfully updated"
+      destroy:
+        delete: "Answer was deleted"
 
   test_passages:
     result:
