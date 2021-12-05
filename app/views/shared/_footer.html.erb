@@ -2,22 +2,22 @@
   <p>
     <ul>
       <li>
-        <strong>Year:</strong>
+        <strong><%= t('.year') %></strong>
         <%= current_year %>
       </li>
 
       <li>
-        <strong>Author:</strong>
+        <strong><%= t('.author') %></strong>
         EvilJadeon
       </li>
 
       <li>
-        <strong>Github:</strong>
+        <strong><%= t('.git') %></strong>
         <%= github_url('Eviljadeon', 'TestGuru') %>
       </li>
 
       <li>
-        <strong>Link:</strong>
+        <strong><%= t('.link') %></strong>
         <%= link_to 'Учебный проект в онлайн - школе Thinknetica', 'https://thinknetica.com', target: '_blank' %>
       </li>
     </ul>

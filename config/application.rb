@@ -19,7 +19,7 @@ module Testguru
     # in config/environments, which are processed later.
     #
     config.time_zone = 'Moscow'
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :ru
 
     # config.eager_load_paths << Rails.root.join("extras")
   end

@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
   def create
     super
-    flash[:success] = "Hey, #{current_user.first_name}"
+    flash[:success] = t('shared.message.hello', user_first_name: current_user.first_name)
   end
 end

@@ -20,7 +20,7 @@
       @question = @test.questions.new(question_params)
 
       if @question.save
-        redirect_to admin_test_path(@question.test)
+        redirect_to admin_test_path(@question.test), success: t('.success')
       else
         render :new
       end
@@ -28,7 +28,7 @@
 
     def update
       if @question.update(question_params)
-        redirect_to admin_test_path(@question.test)
+        redirect_to admin_test_path(@question.test), success: t('.update_success')
       else
         render :edit
       end
@@ -36,7 +36,7 @@
 
     def destroy
       @question.destroy
-      redirect_to admin_test_path(@question.test)
+      redirect_to admin_test_path(@question.test), danger: t('.delete')
     end
 
     private

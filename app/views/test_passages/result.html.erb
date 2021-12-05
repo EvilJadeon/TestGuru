@@ -1,8 +1,9 @@
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
 <% if @test_passage.successfull? %>
-  <h1><font color="green">The <%= @test_passage.test.title %> was Completed!</font></h1>
+  <h1><font color="green"><%= t('.header', title: @test_passage.test.title) %> <%= t('.success') %></font></h1>
 <% else %>
-    <h1><font color="red">The <%= @test_passage.test.title %> was Failed!</font></h1>
+  <h1><font color="red"><%= t('.header', title: @test_passage.test.title) %> <%= t('.fail') %></font></h1>
 <% end %>    
 
-<%= link_to 'List of tests', tests_path %>
+<%= link_to t('.shared.button.back_to_tests'), tests_path %>
