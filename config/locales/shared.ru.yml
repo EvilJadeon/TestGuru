@@ -29,5 +29,6 @@ ru:
       welcome: "Добро пожаловать, "
       hello: "Привет, %{user_first_name}!"
       no_test: 'Здесь нет тестов!'
+      non_auth: "Вы не авторизованы для просмотра этой страницы!"
 
     delete_confirmation: "Вы уверены?"

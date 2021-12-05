@@ -28,6 +28,7 @@ en:
       edit_question: "Edit question"
       welcome: "Welcome, "
       hello: "Hello, %{user_first_name}!"
-      no_test: 'There are no tests here!'
+      no_test: "There are no tests here!"
+      non_auth: "You are not authorized to view this page!"
 
     delete_confirmation: "Are you sure?"
