@@ -135,3 +135,4 @@ ru:
         email: "Почта"
         password: "Пароль"
         remember_me: "Запомнить меня"
+        login: "Вход"
