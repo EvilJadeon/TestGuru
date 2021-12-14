@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+
+  FLASH_TYPES = {
+    notice: 'alert-info',
+    error: 'alert-danger'
+  }
+
   def current_year
     Date.current.year
   end
@@ -10,6 +16,6 @@ module ApplicationHelper
   end
 
   def flash_messages(type)
-    content_tag :p, flash[type], class: "flash #{type}" if flash[type]
+    FLASH_TYPES[type]
   end
 end
