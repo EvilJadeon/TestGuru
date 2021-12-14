@@ -1,25 +1,29 @@
-<footer class="footer">
-  <p>
-    <ul>
-      <li>
-        <strong><%= t('.year') %></strong>
-        <%= current_year %>
-      </li>
+<div class="navbar-fixed-bottom row-fluid">
+  <div class="navbar-inner">
+    <div class="container">
+      <p>
+        <ul>
+          <li>
+            <strong><%= t('.year') %></strong>
+            <%= current_year %>
+          </li>
 
-      <li>
-        <strong><%= t('.author') %></strong>
-        EvilJadeon
-      </li>
+          <li>
+            <strong><%= t('.author') %></strong>
+            EvilJadeon
+          </li>
 
-      <li>
-        <strong><%= t('.git') %></strong>
-        <%= github_url('Eviljadeon', 'TestGuru') %>
-      </li>
+          <li>
+            <strong><%= t('.git') %></strong>
+            <%= github_url('Eviljadeon', 'TestGuru') %>
+          </li>
 
-      <li>
-        <strong><%= t('.link') %></strong>
-        <%= link_to 'Учебный проект в онлайн - школе Thinknetica', 'https://thinknetica.com', target: '_blank' %>
-      </li>
-    </ul>
-  </p>
-</footer>
+          <li>
+            <strong><%= t('.link') %></strong>
+            <%= link_to 'Учебный проект в онлайн - школе Thinknetica', 'https://thinknetica.com', target: '_blank' %>
+          </li>
+        </ul>
+      </p>
+    </div>
+  </div>
+</div>

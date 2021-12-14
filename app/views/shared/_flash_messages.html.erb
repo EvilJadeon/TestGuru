@@ -1,0 +1,9 @@
+<main class="container mt-3">
+  <div>
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-<%= flash_messages(type) %> ">
+      <%= msg %>
+       </div>
+       <% end %>
+  </div>
+</main>
