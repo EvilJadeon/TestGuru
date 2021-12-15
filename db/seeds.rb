@@ -10,10 +10,10 @@
 
 categories = Category.create!([{ title: 'Reading' }, { title: 'Writing' }])
 
-users = User.create!([{ email: 'ivan@ya.ru' },
-                      { email: 'anna@ya.ru' },
-                      { email: 'andrew@ya.ru' },
-                      { email: 'dm@ya.ru' }])
+users = User.create!([{ email: 'ivan@ya.ru', password: '12345678' },
+                      { email: 'anna@ya.ru', password: '12345678' },
+                      { email: 'andrew@ya.ru', password: '12345678' },
+                      { email: 'dm@ya.ru', password: '12345678' }])
 
 tests = Test.create!([
                        { title: 'Тест на глагол TO BE', level: 1, author: users[0], category: categories[1] },
@@ -44,10 +44,4 @@ answers = Answer.create!([
                            { body: 'It was raining this morning.', correct: true, question: questions[3] },
                            { body: 'It was rained this morning.', question: questions[3] },
                            { body: 'It were raining this morning.', question: questions[3] }
-                         ])
-
-results = Result.create!([
-                           { user: users[0], test: tests[0] },
-                           { user: users[1], test: tests[1] },
-                           { user: users[2], test: tests[2] }
                          ])

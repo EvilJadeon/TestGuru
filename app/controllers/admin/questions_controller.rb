@@ -36,7 +36,7 @@
 
     def destroy
       @question.destroy
-      redirect_to admin_test_path(@question.test), danger: t('.delete')
+      redirect_to admin_test_path(@question.test), notice: t('.delete')
     end
 
     private
