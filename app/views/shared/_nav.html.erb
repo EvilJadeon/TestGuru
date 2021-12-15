@@ -18,7 +18,7 @@
       </a>
      </li>
     <li class="nav-item">
-      <%= link_to t('shared.links.logout'), destroy_user_session_path, method: :delete, class: 'nav-link active' %>
+      <%= button_to t('shared.links.logout'), destroy_user_session_path, method: :delete, class: 'nav-link active' %>
     </li>
     <% else %>
       <li class="nav-item">

@@ -7,7 +7,7 @@
        <a class="nav-link active>"> <%= t('shared.message.welcome') %><%= current_user.email %> Guru </a>
      </li>
      <li>
-       <%= link_to t('shared.links.logout'), destroy_user_session_path, method: :delete, class: 'nav-link active' %>
+       <%= button_to t('shared.links.logout'), destroy_user_session_path, method: :delete, class: 'nav-link active' %>
      </li>
    </ul>
  </div>

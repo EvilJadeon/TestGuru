@@ -17,7 +17,7 @@
     <%= render 'shared/nav' %>
 
     <div class="container">
-      <%= render 'shared/flash_messages' %>
+      <%= flash_messages(:success) %>
       <%= yield %>
       <%= render 'shared/footer' %>
     </div>
