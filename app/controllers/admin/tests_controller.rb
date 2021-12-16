@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
   class Admin::TestsController < Admin::BaseController
-    before_action :find_test, only: %i[show edit update destroy start]
+    before_action :find_test, only: %i[show edit update destroy]
 
     def index
       @tests = Test.all
@@ -19,7 +19,7 @@
       @test = current_user.having_tests.new(test_params)
 
       if @test.save
-        redirect_to admin_tests_path, notice: t('.success')
+        redirect_to admin_tests_path, success: t('.success')
       else
         render :new
       end
@@ -29,7 +29,7 @@
 
     def update
       if @test.update(test_params)
-        redirect_to admin_tests_path, notice: t('.update_success')
+        redirect_to admin_tests_path, success: t('.update_success')
       else
         render :edit
       end

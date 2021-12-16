@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Admin Panel | TestGuru</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title> Admin Panel | Test Guru </title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<body>
+  <%= render 'admin/nav' %>
 
-  <body>
-    <%= flash_messages(:danger) %>
+<div class="container">
+  <%= flash_messages(:success) %>
+  <%= yield %>
+  <%= render 'shared/footer' %>
+  <hr>
+  <%= debug(params) if Rails.env.development? %>
+</div>
 
-    <%= render 'admin/nav' %>
 
-    <%= yield %>
-  </body>
+</body>
 </html>

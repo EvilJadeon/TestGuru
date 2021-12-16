@@ -36,6 +36,7 @@ en:
       year: "Year: "
       git: "Github: "
       link: "Link: "
+      project: "Study project in online-school Thinknetica"
     nav:
       header: "TestGuru User Panel"
 
@@ -131,3 +132,4 @@ en:
         header: "Enter the Guru Gates"
         password: "Password"
         remember_me: "Remember me"
+        login: "Log In"

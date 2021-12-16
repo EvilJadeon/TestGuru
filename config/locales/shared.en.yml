@@ -14,7 +14,7 @@ en:
       edit: "Edit"
       delete: "Delete"
       logout: "Log out"
-      login: "Loh in"
+      login: "Log in"
       signup: "Sign up"
       main: "Home"
       forgot_your_password: "Forgot your password?"
@@ -32,3 +32,4 @@ en:
       non_auth: "You are not authorized to view this page!"
 
     delete_confirmation: "Are you sure?"
+  

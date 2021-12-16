@@ -38,6 +38,7 @@ ru:
       year: "Год: "
       git: "Github: "
       link: "Link: "
+      project: "Учебный проект в онлайн-школе Thinknetica"
     nav:
       header: "Панель пользователя TestGuru"
 
@@ -135,3 +136,4 @@ ru:
         email: "Почта"
         password: "Пароль"
         remember_me: "Запомнить меня"
+        login: "Вход"
