@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :gists, only: :create
 
   namespace :admin do
-    resources :gists, shallow: true, only: :index
+    resources :gists, only: :index
     resources :tests do
       resources :questions, shallow: true do
         resources :answers, shallow: true
