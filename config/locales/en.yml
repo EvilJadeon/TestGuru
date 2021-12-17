@@ -88,7 +88,6 @@ en:
         update_success: "Question successfully updated"
       destroy:
         delete: "Question was deleted"
-
     answers:
       new:
         header: "New Answer"
@@ -104,6 +103,12 @@ en:
         update_success: "Answer successfully updated"
       destroy:
         delete: "Answer was deleted"
+    gists:
+      index:
+        header: "Gists"
+        question: "Question"
+        gist_url: "Hash Gist"
+        user: "User email"
 
   test_passages:
     result:
@@ -115,6 +120,11 @@ en:
       total_questions: "Questions: %{count}"
       current_question: "Current question: %{number}"
       of: "of"
+    
+  gists:
+    create:
+      success: "Gist successfully created!"
+      failure: "An error occurred while saving gist"
 
   tests_mailer:
     completed_test:
