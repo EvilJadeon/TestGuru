@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :validatable
 
   has_many :having_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
+  has_many :gists, dependent: :destroy
 
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
