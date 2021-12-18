@@ -9,9 +9,9 @@ class GistsController < ApplicationController
 
     if service.success?
       Gist.new(user: current_user, question: @test_passage.current_question, gist_url: url).save
-      flash[:notice] = "#{view_context.link_to("#{t('.success')}", url, target: '_blank')}"
+      flash[:notice] = t('.success', link: url)
     else
-      flash[:error] = "#{t('.failure')}"
+      flash[:error] = t('.failure')
     end
 
     redirect_to @test_passage
