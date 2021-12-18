@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-  class Admin::TestsController < Admin::BaseController
+module Admin
+  class TestsController < Admin::BaseController
     before_action :find_test, only: %i[show edit update destroy]
 
     def index
@@ -50,4 +51,4 @@
       params.require(:test).permit(:title, :level, :category_id)
     end
   end
-  
+end

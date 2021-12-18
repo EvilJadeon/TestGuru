@@ -42,8 +42,8 @@ gem 'pry-byebug'
 
 # UI
 
-gem 'jquery-rails'
 gem 'bootstrap'
+gem 'jquery-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -56,7 +56,6 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   gem 'dotenv-rails', require: 'dotenv/rails-now'
-  
 end
 
 group :development do

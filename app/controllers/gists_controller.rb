@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class GistsController < ApplicationController
   before_action :authenticate_user!
 
   def create
     @test_passage = TestPassage.find(params[:test_passage_id])
     service = GistQuestionService.new(@test_passage.current_question)
-  
+
     url = service.call.html_url
 
     if service.success?
