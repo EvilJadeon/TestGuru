@@ -3,17 +3,13 @@ class GistsController < ApplicationController
 
   def create
     @test_passage = TestPassage.find(params[:test_passage_id])
-    result = GistQuestionService.new(@test_passage.current_question).call
+    service = GistQuestionService.new(@test_passage.current_question)
+  
+    url = service.call.html_url
 
-    publish_link = view_context.link_to("#{t('.success')}", result.html_url, target: '_blank')
-
-    if result.success?
-      Gist.create!(
-        question: result.files.content,
-        gist_url: result.html_url,
-        user: current_user
-      ).save!
-      flash[:notice] = "#{publish_link}"
+    if service.success?
+      Gist.new(user: current_user, question: @test_passage.current_question, gist_url: url).save
+      flash[:notice] = "#{view_context.link_to("#{t('.success')}", url, target: '_blank')}"
     else
       flash[:error] = "#{t('.failure')}"
     end
