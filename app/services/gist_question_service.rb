@@ -10,6 +10,10 @@ class GistQuestionService
     @client.create_gist(gist_params)
   end
 
+  def success?
+    @client.last_response.status <= 209 && @client.last_response.status >= 200
+  end
+
   private
 
   def gist_params
@@ -28,10 +32,6 @@ class GistQuestionService
   end
 
   def default_client
-    Octokit::Client.new(access_token: ENV.fetch('ACCESS_TOKEN_GIT_HUB'))
-  end
-
-  def success?
-    @client.last_response.status == (200..209)
+    Octokit::Client.new(access_token: ENV['ACCESS_TOKEN_GIT_HUB'])
   end
 end
