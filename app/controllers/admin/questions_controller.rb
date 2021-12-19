@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-module Admin
-  class QuestionsController < Admin::BaseController
+  class Admin::QuestionsController < Admin::BaseController
     before_action :find_test, only: %i[create show new]
     before_action :find_question, only: %i[show edit update destroy]
 
@@ -58,4 +57,3 @@ module Admin
       render html: '<h3>Question not found</h3>'.html_safe
     end
   end
-end

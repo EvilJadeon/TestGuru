@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-module Admin
-  class BaseController < ApplicationController
+  class Admin::BaseController < ApplicationController
     layout 'admin'
 
     before_action :authenticate_user!
@@ -13,4 +12,3 @@ module Admin
       redirect_to root_path, danger: t('.shared.message.non_auth') unless current_user.is_a?(Admin)
     end
   end
-end
