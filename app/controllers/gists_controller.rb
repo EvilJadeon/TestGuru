@@ -10,7 +10,8 @@ class GistsController < ApplicationController
     url = service.call.html_url
 
     if service.success?
-      Gist.new(user: current_user, question: @test_passage.current_question, gist_url: url).save
+      current_user.gists.create(question: @test_passage.current_question, gist_url: url)
+
       flash[:notice] = t('.success', link: url)
     else
       flash[:error] = t('.failure')
