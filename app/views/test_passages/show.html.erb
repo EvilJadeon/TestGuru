@@ -4,7 +4,10 @@
   <%= t('.current_question', number: @test_passage.current_question_number) %> <%= t('.of') %> <%= t('.total_questions', count: @test_passage.test.questions.count) %> #
 </b>
 
+<p>
 <%= flash_messages(:notice) %>
+<%= flash_messages(:error) %>
+</p>
 
 <p>
   <b><%= @test_passage.current_question.body %></b>

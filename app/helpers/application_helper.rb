@@ -16,6 +16,6 @@ module ApplicationHelper
   end
 
   def flash_messages(type)
-    content_tag :div, flash[type], class: "alert #{FLASH_TYPES.fetch(type.to_sym, type)}"
+    content_tag :div, flash[type], class: "alert #{FLASH_TYPES[type]}"
   end
 end
