@@ -61,11 +61,5 @@ div.actions {
   font-size: 12px;
   list-style: square; }
 
-.footer {
-  position: absolute;
-  background-color: rgb(12, 0, 0);
-  color: white;
-  width: 100%;
-  bottom: 0;
-}
-
+label {
+  display: block; }

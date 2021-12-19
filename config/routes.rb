@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'tests#index'
 
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout },
-                                   controllers: { sessions: 'sessions' }
+                     controllers: { sessions: 'sessions' }
 
   resources :tests, only: :index do
     member do
@@ -18,7 +18,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :gists, only: :create
+
   namespace :admin do
+    resources :gists, only: :index
     resources :tests do
       resources :questions, shallow: true do
         resources :answers, shallow: true

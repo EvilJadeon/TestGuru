@@ -7,7 +7,7 @@
     rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
     def show
-      @question = Question.find(question_params)
+      @question
     end
 
     def new

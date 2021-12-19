@@ -91,6 +91,12 @@ ru:
         update_success: "Вопрос успешно обновлен"
       destroy:
         delete: "Вопрос удален"
+    gists:
+      index:
+        header: "Список созданных Gists"
+        question: "Вопрос"
+        gist_url: "Hash Gist"
+        user: "email пользователя"
 
     answers:
       new:
@@ -118,6 +124,14 @@ ru:
       total_questions: "Всего вопросов: %{count}"
       current_question: "Номер текущего вопроса: %{number}"
       of: "из"
+    gist:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка"
+
+  gists:
+    create:
+      success: "Gist успешно сохранён!"
+      failure: "Во время сохранения gist произошла ошибка"
 
   tests_mailer:
     completed_test:

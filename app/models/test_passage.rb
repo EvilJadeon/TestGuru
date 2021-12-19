@@ -24,7 +24,7 @@ class TestPassage < ApplicationRecord
   end
 
   def successfull?
-    self.success_rate >= SUCCESS_RATIO
+    success_rate >= SUCCESS_RATIO
   end
 
   def success_rate
