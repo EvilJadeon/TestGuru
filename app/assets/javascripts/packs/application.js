@@ -5,12 +5,19 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require rails-ujs
+//= require turbolinks
+//= require activestorage
+//= require_tree .
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import "bootstrap"
+
+require("../utilities/sorting")
+require("../utilities/password_check")
+
 
 Rails.start()
 Turbolinks.start()
