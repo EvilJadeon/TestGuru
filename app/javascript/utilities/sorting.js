@@ -1,4 +1,3 @@
-alert(1)
 document.addEventListener('turbolinks:load', function() {
   let control = document.querySelector('.sort-by-title')
 

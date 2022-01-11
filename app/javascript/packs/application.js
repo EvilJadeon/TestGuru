@@ -17,5 +17,13 @@
 
 console.log('Hello World from Webpacker')
 
-require("../utilities/sorting")
-require("../utilities/password_check")
+import Rails from "@rails/ujs"
+import Turbolinks from "turbolinks"
+import * as ActiveStorage from "@rails/activestorage"
+
+import "../utilities/sorting"
+import "../utilities/password_check"
+
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
