@@ -44,6 +44,7 @@ gem 'pry-byebug'
 
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'octicons_helper'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

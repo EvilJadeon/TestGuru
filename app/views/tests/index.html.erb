@@ -1,10 +1,12 @@
 <h1 class="display-3"><%= t('tests.index.header') %></h1>
 
-<% unless @tests.empty?%>
+<% if @tests.present?%>
   <table class="table table-hover">
     <tr class="table-primary">
       <th scope="col" class="sort-by-title pointer text-center">
         <%= t('.title') %>
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
       </th>
       <th scope="col" class="text-center"><%= t('.level') %></th>
       <th scope="col" class="text-center"><%= t('.count') %></th>
