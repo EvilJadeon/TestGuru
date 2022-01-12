@@ -73,6 +73,8 @@ en:
         actions: "Actions"
       edit:
         edit: "Edit test: %{title}"
+      form_inline:
+        submit: "OK"
     questions:
       new:
         header: "Create New Question"
@@ -120,6 +122,8 @@ en:
       total_questions: "Questions: %{count}"
       current_question: "Current question: %{number}"
       of: "of"
+      button:
+        next: "Next"
     
   gists:
     create:

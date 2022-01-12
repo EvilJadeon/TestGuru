@@ -76,6 +76,8 @@ ru:
         actions: "Действия"
       edit:
         edit: "Редактировать тест: %{title}"
+      form_inline:
+        submit: "OK"
     questions:
       new:
         header: "Создать новый вопрос"
@@ -124,6 +126,8 @@ ru:
       total_questions: "Всего вопросов: %{count}"
       current_question: "Номер текущего вопроса: %{number}"
       of: "из"
+      button:
+        next: "Вперёд"
     gist:
       success: "Gist успешно сохранен!"
       failure: "Во время сохранения gist произошла ошибка"
