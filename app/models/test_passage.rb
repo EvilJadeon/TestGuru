@@ -13,6 +13,10 @@ class TestPassage < ApplicationRecord
     test.questions.order(:id).where('id < ?', current_question.id).size + 1
   end
 
+  def total_questions
+    test.questions.count
+  end
+
   def completed?
     current_question.nil?
   end
