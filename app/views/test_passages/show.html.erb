@@ -9,6 +9,9 @@
 <%= flash_messages(:error) %>
 </p>
 
+<%= content_tag :div, nil,  class: 'progressbar', data: { current_question_number: @test_passage.current_question_number,
+                                                      total_questions: @test_passage.total_questions } %>
+
 <p>
   <b><%= @test_passage.current_question.body %></b>
 </p>
@@ -22,6 +25,6 @@
   <% end %>
 
   <p><%= link_to t('shared.links.new_gist'), gists_path(test_passage_id: @test_passage.id), method: :post %></p>
-  <p><%= form.submit t('.shared.button.next') %></p>
+  <p><%= form.submit t('.button.next') %></p>
 
 <% end %>
