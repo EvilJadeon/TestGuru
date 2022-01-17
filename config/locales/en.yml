@@ -32,7 +32,7 @@ en:
         one: "%{count} error detected"
         other: "%{count} errors detected"
     footer:
-      author: "Author: "
+      author: "EvilJadeon"
       year: "Year: "
       git: "Github: "
       link: "Link: "
