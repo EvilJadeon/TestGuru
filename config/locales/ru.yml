@@ -34,7 +34,7 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
     footer:
-      author: "Автор: "
+      author: "EvilJadeon"
       year: "Год: "
       git: "Github: "
       link: "Link: "
