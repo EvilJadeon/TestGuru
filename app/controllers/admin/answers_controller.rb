@@ -24,7 +24,7 @@
 
     def update
       if @answer.update(answer_params)
-        redirect_to admin_question_answers_path, success: t('.update_success')
+        redirect_to admin_answer_path(@answer), success: t('.update_success')
       else
         render :edit
       end
@@ -32,7 +32,7 @@
 
     def destroy
       @answer.destroy
-      redirect_to admin_question_answers_path, danger: t('.delete')
+      redirect_to admin_question_path(@answer.question), danger: t('.delete')
     end
 
     private
