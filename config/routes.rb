@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  default_url_options :host => 'thejadeontestguru.herokuapp.com'
+  default_url_options host: Rails.application.config.domain
 
   root 'tests#index'
 
