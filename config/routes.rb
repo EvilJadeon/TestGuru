@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  default_url_options :host => 'thejadeontestguru.herokuapp.com'
+
   root 'tests#index'
 
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout },
