@@ -24,7 +24,7 @@
 
     def update
       if @answer.update(answer_params)
-        redirect_to admin_question_path(@question), success: t('.update_success')
+        redirect_to admin_question_answers_path, success: t('.update_success')
       else
         render :edit
       end
