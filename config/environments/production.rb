@@ -64,8 +64,9 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "testguru_production"
 
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'salty-reaches-52732.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'thejadeontestguru.herokuapp.com' }
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
