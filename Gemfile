@@ -32,6 +32,10 @@ gem 'devise', '~> 4.0'
 
 gem 'octokit'
 
+# Mail
+
+gem 'mail_form'
+
 # LOCALIZATION
 
 gem 'rails-i18n'
