@@ -14,7 +14,7 @@ class TestsController < ApplicationController
       current_user.tests.push(@test)
       redirect_to current_user.test_passage(@test)
     else
-      flash[:alert] = 'Нет доступа к тесту!'
+      flash.now[:notice] = 'Нет доступа к тесту!'
     end
   end
 end
