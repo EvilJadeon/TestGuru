@@ -8,10 +8,10 @@ class User < ApplicationRecord
          :validatable,
          :confirmable
 
-  has_many :having_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy, on_delete: :cascade
-  has_many :gists, dependent: :destroy, on_delete: :cascade
+  has_many :having_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
+  has_many :gists, dependent: :destroy
 
-  has_many :test_passages, dependent: :destroy, on_delete: :cascade
+  has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
 
   def passed_tests(test_level)
