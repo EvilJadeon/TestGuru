@@ -14,7 +14,7 @@ class TestsController < ApplicationController
       current_user.tests.push(@test)
       redirect_to current_user.test_passage(@test)
     else
-      flash[:error] = 'Тест не содержит ни одного вопроса!'
+      flash.now[:danger] = 'Тест не содержит ни одного вопроса!'
     end
   end
 end
