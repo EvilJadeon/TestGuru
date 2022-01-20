@@ -1,6 +1,7 @@
 <h1 class="display-3"><%= t('tests.index.header') %></h1>
 
 <% if @tests.present?%>
+  <%= flash_messages(:danger) %>
   <table class="table table-hover">
     <tr class="table-primary">
       <th scope="col" class="sort-by-title pointer text-center">
@@ -12,7 +13,7 @@
       <th scope="col" class="text-center"><%= t('.count') %></th>
       <th scope="col" class="text-center"><%= t('.actions') %></th>
     </tr>
-    <%= flash_messages(:danger) %>
+
     <%= render @tests  %>
   </table>
 <% else %>
