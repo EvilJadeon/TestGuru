@@ -7,14 +7,18 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
+  def test_completed?
+    @test.completed
+  end
+
   def start
     @test = Test.find(params[:id])
 
-    if @test.questions.count > 0
+    if @test.questions.count > 0 && test_completed?
       current_user.tests.push(@test)
       redirect_to current_user.test_passage(@test)
     else
-      flash.now[:danger] = 'Тест не содержит ни одного вопроса!'
+      flash.now[:danger] = 'Нет доступа к тесту!'
     end
   end
 end
