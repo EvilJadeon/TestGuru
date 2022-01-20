@@ -33,6 +33,6 @@ class GistQuestionService
   end
 
   def default_client
-    Octokit::Client.new(access_token: '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')
+    Octokit::Client.new(access_token: ENV['ACCESS_TOKEN_GIT_HUB'])
   end
 end
