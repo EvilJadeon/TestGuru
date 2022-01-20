@@ -3,7 +3,7 @@
   class Admin::TestsController < Admin::BaseController
 
     before_action :find_tests, only: %i[index update_inline]
-    before_action :find_test, only: %i[show edit update destroy update_inline]
+    before_action :find_test, only: %i[show edit update destroy update_inline test_completed?]
 
     def index; end
 
@@ -48,6 +48,10 @@
       redirect_to admin_tests_path, notice: t('.delete')
     end
 
+    def test_completed?
+      @test.completed
+    end
+
     private
 
     def find_tests
@@ -59,6 +63,6 @@
     end
 
     def test_params
-      params.require(:test).permit(:title, :level, :category_id)
+      params.require(:test).permit(:title, :level, :category_id, :completed)
     end
   end

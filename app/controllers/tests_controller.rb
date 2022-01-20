@@ -7,10 +7,6 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def test_completed?
-    @test.completed
-  end
-
   def start
     @test = Test.find(params[:id])
 
