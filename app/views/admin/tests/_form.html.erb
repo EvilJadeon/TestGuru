@@ -16,10 +16,8 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
 
-  <div class="field">
-    <%= form.label :completed %> <br />
-    <%= form.check_box :completed %> <br />
-  </div>
+  <%= hidden_field_tag :completed, '' %>
+  <%= check_box_tag :completed, checked = true %>
 
   <p><%= form.submit %></p>
 <% end %>
