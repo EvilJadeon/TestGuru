@@ -9,7 +9,12 @@ class TestsController < ApplicationController
 
   def start
     @test = Test.find(params[:id])
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
+
+    if @test_passage.total_questions > 0
+      current_user.tests.push(@test)
+      redirect_to current_user.test_passage(@test)
+    else
+      flash[:error] = 'Тест не содержит ни одного вопроса!'
+    end
   end
 end
