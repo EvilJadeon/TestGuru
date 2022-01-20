@@ -4,8 +4,8 @@ class Test < ApplicationRecord
   belongs_to :category
   belongs_to :author, class_name: 'User'
 
-  has_many :questions, dependent: :destroy
-  has_many :test_passages, dependent: :destroy
+  has_many :questions, dependent: :destroy, on_delete: :cascade
+  has_many :test_passages, dependent: :destroy, on_delete: :cascade
   has_many :users, through: :test_passages
 
   validates :title, presence: true
