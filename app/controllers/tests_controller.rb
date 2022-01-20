@@ -10,7 +10,7 @@ class TestsController < ApplicationController
   def start
     @test = Test.find(params[:id])
 
-    if current_user.test_passage(@test).total_questions > 0
+    if @test.questions.count > 0
       current_user.tests.push(@test)
       redirect_to current_user.test_passage(@test)
     else
