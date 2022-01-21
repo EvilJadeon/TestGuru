@@ -10,11 +10,11 @@ class TestsController < ApplicationController
   def start
     @test = Test.find(params[:id])
 
-    if @test.questions.count > 0 && @test.completed
+    if @test.completed
       current_user.tests.push(@test)
       redirect_to current_user.test_passage(@test)
     else
-      flash[:notice] = 'Нет доступа к тесту!'
+      redirect_to root_path, alert: 'Нет доступа к тесту!'
     end
   end
 end
