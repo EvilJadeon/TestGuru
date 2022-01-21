@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Contact Form</h1>
+  <%= form_for @contact do |f| %>
+    <div class="col-md-6">
+      <%= f.hidden_field  :name, value: current_user.first_name %></br>
+
+      <%= f.hidden_field :email, value: current_user.email %></br>
+
+      <%= f.text_area :message, rows: 12, cols: 60, required: true, class: "contact-form-text-area", 
+            placeholder: "Send me a message"%></br>
+
+      <%= f.submit 'Send Message', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

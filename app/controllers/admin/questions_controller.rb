@@ -1,14 +1,12 @@
 # frozen_string_literal: true
 
   class Admin::QuestionsController < Admin::BaseController
-    before_action :find_test, only: %i[create show new]
+    before_action :find_test, only: %i[create new]
     before_action :find_question, only: %i[show edit update destroy]
 
     rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-    def show
-      @question
-    end
+    def show; end
 
     def new
       @question = Question.new

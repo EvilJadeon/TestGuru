@@ -9,7 +9,12 @@ class TestsController < ApplicationController
 
   def start
     @test = Test.find(params[:id])
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
+
+    if @test.completed
+      current_user.tests.push(@test)
+      redirect_to current_user.test_passage(@test)
+    else
+      redirect_to root_path, warning: 'Нет доступа к тесту!'
+    end
   end
 end

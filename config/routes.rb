@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :contacts, only: %i[new create]
+
   root 'tests#index'
 
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout },
@@ -25,8 +27,8 @@ Rails.application.routes.draw do
     resources :tests do
       patch :update_inline, on: :member
 
-      resources :questions, shallow: true do
-        resources :answers, shallow: true
+      resources :questions, except: :index, shallow: true do
+        resources :answers, except: :index, shallow: true
       end
     end
   end

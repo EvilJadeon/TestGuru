@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'rack-timeout'
+
 # AUTH
 
 gem 'devise', '~> 4.0'
@@ -29,6 +31,10 @@ gem 'devise', '~> 4.0'
 # NETWORKING
 
 gem 'octokit'
+
+# Mail
+
+gem 'mail_form'
 
 # LOCALIZATION
 
@@ -68,6 +74,12 @@ group :development do
   gem 'spring'
 
   gem 'letter_opener'
+end
+
+group :production do
+  # Use PostgreSQL as the database for Active Record
+  gem 'pg'
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
 end
 
 group :test do
