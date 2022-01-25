@@ -1,30 +1,29 @@
 document.addEventListener('turbolinks:load', function() {
-  var total_time = document.getElementById('minutes').innerHTML
-  var min = total_time - 1
-  var sec = 59
+  var form = document.getElementById('navform')
+  var deadline = form.dataset.timerDeadline
+  var time_now = form.dataset.timeNow
+  var remaining_time = form.dataset.differenceTime
+  var min = Math.floor(remaining_time / 60)
+  var sec = remaining_time % 60
 
+  document.getElementById('seconds').innerHTML = sec
+  document.getElementById('minutes').innerHTML = min
 
   setTimeout(timer, 1000)
   function timer() {
     sec--
-    localStorage.setItem('seconds', sec)
 
-    document.getElementById('minutes').innerHTML = localStorage.getItem('minutes')
-    document.getElementById('seconds').innerHTML = localStorage.getItem('seconds')
+    document.getElementById('seconds').innerHTML = sec
 
-    
     if (min == 0 && sec == 0) {
-      document.forms['complete-form'].submit()
+      document.forms['navform'].submit()
     } else {
       if (sec == 0) {
         min--
+        document.getElementById('minutes').innerHTML = min
         sec = 59
-        localStorage.setItem('minutes', min)
-        localStorage.setItem('seconds', sec)
       } else {
         setTimeout(timer, 1000)
-        localStorage.setItem('minutes', min)
-        localStorage.setItem('seconds', sec)
       }
     }
   }

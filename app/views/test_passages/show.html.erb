@@ -18,7 +18,8 @@
   <b><%= @test_passage.current_question.body %></b>
 </p>
 
-<%= form_with url: test_passage_path(@test_passage), id: 'complete-form', method: :put do |form| %>
+<%= form_with url: test_passage_path(@test_passage), id: 'navform', method: :put, data: { timer_deadline: @test_passage.timer_deadline,
+                                                                                       difference_time: @test_passage.difference_time, time_now: @test_passage.time_now} do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
     <p>
       <%= b.check_box id: "answer_ids_#{b.object.id}" %>
