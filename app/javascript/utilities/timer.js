@@ -1,7 +1,5 @@
 document.addEventListener('turbolinks:load', function() {
   var form = document.getElementById('navform')
-  var deadline = form.dataset.timerDeadline
-  var time_now = form.dataset.timeNow
   var remaining_time = form.dataset.differenceTime
   var min = Math.floor(remaining_time / 60)
   var sec = remaining_time % 60
@@ -17,14 +15,14 @@ document.addEventListener('turbolinks:load', function() {
 
     if (min == 0 && sec == 0) {
       document.forms['navform'].submit()
+    }
+    
+    if (sec == 0) {
+      min--
+      document.getElementById('minutes').innerHTML = min
+      sec = 59
     } else {
-      if (sec == 0) {
-        min--
-        document.getElementById('minutes').innerHTML = min
-        sec = 59
-      } else {
-        setTimeout(timer, 1000)
-      }
+      setTimeout(timer, 1000)
     }
   }
 })
