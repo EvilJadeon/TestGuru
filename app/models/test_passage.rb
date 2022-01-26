@@ -18,7 +18,7 @@ class TestPassage < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    current_question.nil? || difference_time.zero?
   end
 
   def accept!(answer_ids)
@@ -33,6 +33,18 @@ class TestPassage < ApplicationRecord
 
   def success_rate
     (correct_questions.to_f * 100) / test.questions.size
+  end
+
+  def timer_deadline
+    self.created_at + (self.test.timer * 60)
+  end
+
+  def difference_time
+    (timer_deadline - time_now).floor
+  end
+
+  def time_now
+    Time.now
   end
 
   private

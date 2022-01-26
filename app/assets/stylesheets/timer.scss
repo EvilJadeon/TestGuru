@@ -1,0 +1,28 @@
+:root {
+  --smaller: .75;
+}
+
+.timer {
+  align-content: center;
+  background: linear-gradient(to left, #ffffff, #97f6fd);
+  border-radius: 5px;
+  width: 250px;
+  height: 100px;
+  margin: 0 auto;
+  text-align: center;
+  border: 2px solid blueviolet;
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+  padding: 1em;
+  text-transform: uppercase;
+  font-size: calc(1.125rem * var(--smaller));
+}
+
+li span {
+  display: block;
+  font-size: calc(3.375rem * var(--smaller));
+}
+

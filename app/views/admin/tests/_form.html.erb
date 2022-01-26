@@ -16,6 +16,11 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
 
+  <p>
+    <%= form.label :timer %>
+    <%= form.number_field :timer, id: :timer, min: 1, max: 30, step: 1 %>
+  </p>
+
    <p>
     <%= form.label :completed %>
     <%= form.check_box :completed, id: :test_completed %>
