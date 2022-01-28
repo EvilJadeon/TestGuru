@@ -9,6 +9,10 @@
 
     <% if user_signed_in? %>
       <li class="nav-item">
+        <%= link_to 'My badges', badges_path, class: 'nav-link active' %>
+      </>
+
+      <li class="nav-item">
         <%= link_to t('.header'), root_path, class: 'nav-link active' %>
       </li>
 

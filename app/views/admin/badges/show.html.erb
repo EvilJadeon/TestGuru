@@ -1,0 +1,17 @@
+<p>
+  <strong>Title</strong>
+  <%= @badge.title %>
+</p>
+
+<p>
+  <strong>Image</strong>
+  <%= @badge.image %>
+</p>
+
+<p>
+  <strong>Rule</strong>
+  <%= @badge.rule %>
+</p>
+
+<%= link_to 'Edit', edit_admin_badge_path(@badge) %>
+<%= link_to 'Back', admin_badges_path %>
