@@ -4,8 +4,9 @@ class Badge < ApplicationRecord
   has_many :users, through: :user_badges
 
   RULES = {
-    1 => 'First test complete',
-    2 => 'Lose 3 tests',
-    3 => 'Lose 10 tests'
+    1 => 'First try pass test',
+    2 => 'Lose 10 tests',
+    3 => 'Pass all tests of a category',
+    4 => 'Pass all tests of a level'
   }.freeze
 end
