@@ -1,32 +1,45 @@
 class BadgeService
-  def initialize
-
+  def initialize(test_passage)
+    @test_passage = test_passage
+    @user = @test_passage.user
+    @test = @test_passage.test
   end
 
   def call
-    
+    Badge.all.each do |badge|
+      @user.badges << badge if send("#{badge.rule}", badge.value)
+    end
   end
 
   private
 
-  def first_try_pass_test(user_id)
-    TestPassage.where(user_id: user_id)
+  def pass_tests_category(value)
+    find_tests = Test.where(category_id: @test.category_id).count
+    find_test_passages = Test.joins(:test_passages)
+                              .where('test_passages.user_id = ? and test_passages.test_id = ? and test_passages.successfull = ? and tests.category_id = ?',
+                              @test_passage.user_id, @test_passage.test_id, true, value.to_i).distinct.count
+    
+    find_tests == find_test_passages
   end
 
-  def lose_10_tests(user_id)
-    TestPassage.where(user_id: user_id)
+  def first_try_pass(value)
+    find_test_passages = TestPassage.where('test_id = ? and user_id = ? and successfull = ?', @test_passage.test_id, @test_passage.user_id, true).distinct.count
+    find_test_passages == 1
+    
   end
 
-  def pass_tests_category(user_id, category_id)
-    find_test = Test.where(category_id: category_id).count
-    find_users_category = TestPassage.where(user_id: user_id).where(category_id: category_id).count
+  def lose_10_tests(value)
+    find_test_passages = TestPassage.where('test_id = ? and user_id = ? and successfull = ?', @test_passage.test_id, @test_passage.user_id, false).count
 
-    if find_users_category == find_test
-      # выдать бейдж
-    end
+    find_test_passages == 10
   end
 
-  def pass_tests_level(user_id)
-    TestPassage.where(user_id: user_id)
+  def pass_tests_level(value)
+    find_tests = Test.where(level: @test.level).count
+    find_test_passages = Test.joins(:test_passages)
+                            .where('test_passages.user_id = ? and test_passages.test_id = ? and test_passages.successfull = ? and tests.level = ?',
+                            @test_passage.user_id, @test_passage.test_id, true, value.to_i).distinct.count
+    
+    find_tests == find_test_passages
   end
 end
