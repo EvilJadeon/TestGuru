@@ -5,7 +5,7 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_current_question
+  before_validation :before_validation_set_current_question, on: :create
 
   SUCCESS_RATIO = 85
 
@@ -24,10 +24,16 @@ class TestPassage < ApplicationRecord
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
 
+    self.current_question = next_question
+
     save!
   end
 
-  def successfull?
+  def update_successfull!
+    update!(successfull: true)
+  end
+
+  def success?
     success_rate >= SUCCESS_RATIO
   end
 
@@ -54,6 +60,6 @@ class TestPassage < ApplicationRecord
   end
 
   def before_validation_set_current_question
-    self.current_question = next_question
+    self.current_question = test.questions.first if test.present?
   end
 end
