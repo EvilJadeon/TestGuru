@@ -5,13 +5,18 @@
   </p>
 
   <p>
-    <%= form.label :image %><br>
-    <%= form.file_field :image, id: :badge_image, class: "form-control" %>
+    <%= form.label :rule %><br>
+    <%= form.text_field :rule, id: :badge_rule, class: "form-control" %>
   </p>
 
   <p>
-    <%= form.label :rule %><br>
-    <%= form.text_field :rule, id: :badge_rule, class: "form-control" %>
+    <%= form.label :value %>
+    <%= form.text_field :value, id: :badge_value, class: "form-control" %>
+  </p>
+
+  <p>
+    <%= form.label :image %><br>
+    <%= form.file_field :image, id: :badge_image, class: "form-control" %>
   </p>
 
   <p> <%= form.submit %> </p>
