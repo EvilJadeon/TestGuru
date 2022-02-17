@@ -5,12 +5,12 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_current_question, on: :create
+  before_validation :before_validation_set_current_question
 
   SUCCESS_RATIO = 85
 
   def current_question_number
-    test.questions.order(:id).where('id < ?', current_question.id).size + 1
+    self.test.questions.index(current_question) + 1
   end
 
   def total_questions
@@ -24,13 +24,11 @@ class TestPassage < ApplicationRecord
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
 
-    self.current_question = next_question
-
     save!
   end
 
   def update_successfull!
-    update!(successfull: true)
+    update(successfull: true)
   end
 
   def success?
@@ -52,7 +50,7 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    if new_record?
+    if current_question.nil?
       test.questions.first if test.present?
     else
       test.questions.order(:id).where('id > ?', current_question.id).first
@@ -60,6 +58,6 @@ class TestPassage < ApplicationRecord
   end
 
   def before_validation_set_current_question
-    self.current_question = test.questions.first if test.present?
+    self.current_question = next_question
   end
 end
