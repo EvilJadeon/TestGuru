@@ -25,15 +25,15 @@ class BadgeService
   end
 
   def first_try_pass(value)
-    find_fall_test_passages = TestPassage.where(user: @user, test: @test, successfull: false).count
+    find_test_passages = TestPassage.where(user: @user, test: @test)
 
-    @test_passage.successfull == true && find_fall_test_passages == 0
+    @test_passage.successfull == true && find_test_passages.count <= 1
   end
 
   def lose_10_tests(value)
     find_test_passages = TestPassage.where(user: @user, test: @test, successfull: false).count
 
-    find_test_passages % 10 == 0
+    find_test_passages != 0 && find_test_passages % 10 == 0
   end
 
   def pass_tests_level(value)
@@ -42,7 +42,7 @@ class BadgeService
     find_test_passages = Test.where(level: value.to_i)
                               .joins(:test_passages)
                               .where(test_passages: { user: @user, successfull: true })
-                              .distinct.count
+                              .count
     
     find_tests == find_test_passages
   end
