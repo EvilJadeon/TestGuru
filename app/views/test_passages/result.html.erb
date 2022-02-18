@@ -1,6 +1,6 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 
-<% if @test_passage.successfull? %>
+<% if @test_passage.success? %>
   <h1><font color="green"><%= t('.success') %></font></h1>
 <% else %>
   <h1><font color="red"><%= t('.fail') %></font></h1>

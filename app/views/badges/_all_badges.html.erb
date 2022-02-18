@@ -1,0 +1,19 @@
+<h3 class="display-5">All badges</h3>
+
+<table class="table table-hover">
+  <tr class="table-primary">
+    <th class="align-middle">Title</th>
+    <th class="align-middle">Image</th>
+  </tr>
+
+  <% Badge.all.each do |badge| %>
+    <tr>
+      <td class="align-middle"><%= badge.title %></td>
+      <td class="align-middle"><%= image_tag badge.image, size: "50x50" %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+  <%= link_to 'Back', :back %>
+</p>
