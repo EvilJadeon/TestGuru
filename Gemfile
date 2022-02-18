@@ -90,5 +90,11 @@ group :test do
   gem 'webdrivers'
 end
 
+group :production do
+  # Use PostgreSQL as the database for Active Record
+  gem 'pg'
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
