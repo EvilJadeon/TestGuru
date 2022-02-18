@@ -27,7 +27,7 @@ class BadgeService
   def first_try_pass(value)
     find_test_passages = TestPassage.where(user: @user, test: @test)
 
-    @test_passage.successfull == true && find_test_passages.count <= 1
+    @test_passage.successfull && find_test_passages.count == 1
   end
 
   def lose_10_tests(value)
